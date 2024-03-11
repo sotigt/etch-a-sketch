@@ -1,4 +1,5 @@
 const gridsize = 700;
+let count = 1.0;
 
 const container = document.querySelector('.square-container');
 container.setAttribute("style", `height: ${gridsize}px; width: ${gridsize}px`);
@@ -17,14 +18,22 @@ function createGrid (squarePerSide) {
         square.setAttribute("style", `height: ${squareSize}; width: ${squareSize}`);
         square.setAttribute("class", "square");
 
-        square.addEventListener('mouseover', (e) => onHover(e.target))
+        square.addEventListener('mouseenter', (e) => onHover(e.target))
 
         container.appendChild(square);
     }
 }
 
 function onHover (square) {
-    square.setAttribute("class", "square-hover");
+    square.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);  
+    square.style.transitionDuration = "0.5s";
+    square.style.filter = `brightness(${count})`;
+
+    count = count - 0.1;
+   
+    if(count <= 0.1){
+    count = 1.0;
+   }
 }
 
 function handleBtnClick (text) {
