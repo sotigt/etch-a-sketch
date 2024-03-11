@@ -28,7 +28,7 @@ function onHover (square) {
 
 function handleBtnClick (text) {
     let answer = prompt(text);
-    if(answer > 100 || answer < 1) {
+    if(isNaN(answer) || Number(answer) > 100 || Number(answer) < 1) {
         handleBtnClick("Try again. The number should be between 1 and 100.");
     }
 
