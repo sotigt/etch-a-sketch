@@ -8,6 +8,7 @@ newGridBtn.addEventListener('click', () => handleBtnClick("Pick a number between
 
 
 function createGrid (squarePerSide) {
+    container.innerHTML = "";
     const totalSquares = (squarePerSide * squarePerSide);
     const squareSize = `${(gridsize / squarePerSide) }px`;
 
@@ -23,16 +24,15 @@ function createGrid (squarePerSide) {
 }
 
 function onHover (square) {
-    square.setAttribute("class", "square-hover")
+    square.setAttribute("class", "square-hover");
 }
 
 function handleBtnClick (text) {
     let answer = prompt(text);
-    if(answer > 100 || answer < 1) {
+    if(isNaN(answer) || Number(answer) > 100 || Number(answer) < 1) {
         handleBtnClick("Try again. The number should be between 1 and 100.");
+        return;
     }
-
-    container.innerHTML = "";
 
     createGrid(answer);
     
