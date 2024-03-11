@@ -1,8 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgba(255, 192, 203, 0.507);
+}
+
 .container {
-    border: 5px solid black; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.square-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    
 }
 
 .square {
-    border: 2px solid black;
-    background: pink;
+    border: 1px solid;
+    
 }

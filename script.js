@@ -1,10 +1,20 @@
-const container = document.querySelector('.container');
+const gridsize = 700;
+const container = document.querySelector('.square-container');
+container.setAttribute("style", `height: ${gridsize}px; width: ${gridsize}px`);
 
-// loopa och skapa 16 squares
-//appenda de till container 
 
-for(let i = 0; i < 16; i++) {
-    const square = document.createElement('div');
-    square.setAttribute("class", "square");
-    container.appendChild(square);
+function createGrid (squarePerSide) {
+    const totalSquares = (squarePerSide * squarePerSide);
+    const squareSize = `${(gridsize / squarePerSide) }px`;
+
+    for(let i = 0; i < totalSquares; i++) {
+        const square = document.createElement('div');
+        square.setAttribute("style", `height: ${squareSize}; width: ${squareSize}`);
+        square.setAttribute("class", "square");
+
+        container.appendChild(square);
+    }
 }
+
+
+createGrid(30)
