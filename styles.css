@@ -38,7 +38,3 @@ button {
 .square {
     border: -0.5px solid rgb(219, 217, 217); 
 }
-
-.square-hover {
-    background-color: black;
-}
