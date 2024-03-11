@@ -24,5 +24,10 @@ body {
 
 .square {
     border: 1px solid;
+
     
+}
+
+.square-hover {
+    background-color: black;
 }

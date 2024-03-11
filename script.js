@@ -12,9 +12,14 @@ function createGrid (squarePerSide) {
         square.setAttribute("style", `height: ${squareSize}; width: ${squareSize}`);
         square.setAttribute("class", "square");
 
+        square.addEventListener('mouseover', (e) => onHover(e.target))
+
         container.appendChild(square);
     }
 }
 
+function onHover (square) {
+    square.setAttribute("class", "square-hover")
+}
 
 createGrid(30)
