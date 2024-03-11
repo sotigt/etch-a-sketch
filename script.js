@@ -1,6 +1,10 @@
 const gridsize = 700;
+
 const container = document.querySelector('.square-container');
 container.setAttribute("style", `height: ${gridsize}px; width: ${gridsize}px`);
+
+const newGridBtn = document.querySelector('.newGridBtn');
+newGridBtn.addEventListener('click', () => handleBtnClick("Pick a number between 1 and 100."));
 
 
 function createGrid (squarePerSide) {
@@ -22,4 +26,17 @@ function onHover (square) {
     square.setAttribute("class", "square-hover")
 }
 
-createGrid(30)
+function handleBtnClick (text) {
+    let answer = prompt(text);
+    if(answer > 100 || answer < 1) {
+        handleBtnClick("Try again. The number should be between 1 and 100.");
+    }
+
+    container.innerHTML = "";
+
+    createGrid(answer);
+    
+}
+
+
+createGrid(16);
